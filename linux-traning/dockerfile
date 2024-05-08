@@ -1,0 +1,29 @@
+# Ubuntuイメージをベースにする
+FROM ubuntu:latest
+
+# apt-getがインタラクティブなフロントエンドを使用しないように設定
+ENV DEBIAN_FRONTEND=noninteractive
+
+# ロケールの設定とVimのインストール
+RUN apt-get update && apt-get install -y locales vim && rm -rf /var/lib/apt/lists/* \
+    && localedef -i ja_JP -c -f UTF-8 -A /usr/share/locale/locale.alias ja_JP.UTF-8
+ENV LANG ja_JP.UTF-8  
+
+# コンテナ起動時の作業ディレクトリを設定
+WORKDIR /root
+
+# コンテナが起動する際にbashを実行(コンテナが停止しないように)
+CMD ["bash"]
+
+# 以下を参考に作成、実行した
+# https://qiita.com/yuta_931214/items/69cf15266fbea7b5ac4d
+
+# これでコンテナを複数立てられる
+# docker run -it --name [container-name] my-ubuntu-image
+
+# image名を変えたいときは
+# docker build -t [image-name] .
+
+###########
+# docker run -it --name myubuntu my-ubuntu-image
+# docker run -it --name ubuntu-for-plactice-linux my-ubuntu-image
