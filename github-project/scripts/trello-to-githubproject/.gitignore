@@ -1,4 +1,6 @@
 .env
+node_modules
 
 # treloのjsonデータを入れる。実験用
 # sample
+# sample-*
