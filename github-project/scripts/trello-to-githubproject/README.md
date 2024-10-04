@@ -32,7 +32,7 @@
 1. GitHubにてpersonal access tokenを取得する。
     - `.env`ファイルを用意し、GitHubのpersonal access tokenを入力する。<br/>
         `./sample.env`を参考のこと。
-    - 別アカウントのpurivateにissueを作成する場合はそっちでも設定必要
+    - 別アカウントのprivateにissueを作成する場合はそっちでも設定必要
 1. 実行
   `scripts/trello-to-githubproject`にて`yarn install`および`yarn start`を実行
 
